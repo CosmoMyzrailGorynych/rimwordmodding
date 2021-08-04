@@ -14,7 +14,7 @@ permalink: "{% if path %}{{ path | slug }}{% else %}{{'/post/'}}{{ title | slug 
         {% endif %}
 
         {% if tags %}
-            <div class="mb-2">
+            <div class="mb-2 tags">
                 {% for tag in tags %}
                     {%- if tag !== "post" -%}
                         <a class="tag {{ tag | replace('.', '') }}" href="{{ site.baseUrl }}tag/{{ tag }}">{{ tag }}</a>
@@ -35,6 +35,12 @@ permalink: "{% if path %}{{ path | slug }}{% else %}{{'/post/'}}{{ title | slug 
         {% endif %}
 
         <div class="content post">
+            {% if content | toc %}
+                <div class="ToC">
+                    <h3>Table of contents</h3>
+                    {{ content | toc | safe }}
+                </div>
+            {% endif %}
             {{ content | safe }}
         </div>
 

@@ -1,11 +1,11 @@
 {
-  "name": "11r",
-  "description": "america's favorite eleventy blog template",
-  "url": "https://reeseschultz.github.io",
-  "baseUrl": "/11r/",
+  "name": "Rimworld modding",
+  "description": "The site that sheds the light into darkness of Rimworld mod making. References, guides, docs, tutorials, cheat-sheets.",
+  "url": "https://rimword.comigogames.com",
+  "baseUrl": "/",
   "author": {
-    "handle": "@ReeseCodes",
-    "name": "Reese Schultz"
+    "handle": "@ComigoGames",
+    "name": "Comigo Games"
   },
   "images": {
     "twitter": "twitter.jpg",

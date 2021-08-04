@@ -5,6 +5,9 @@ const handlePrivacyPolicyNoticeDismissal = () => {
     'dismissedPrivacyPolicyNotice'
   );
   const privacyNotice = document.getElementById('privacy-notice');
+  if (!privacyNotice) {
+    return;
+  }
 
   if (!!dismissedPrivacyPolicyNotice) privacyNotice.classList.add('hidden');
 

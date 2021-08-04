@@ -1,6 +1,19 @@
 const siteSettings = require('./src/globals/site.json');
+const markdownIt = new require('markdown-it')({
+  typographer: true,
+  linkify: true
+});
+
+// Tables of contents in Markdown files
+const pluginTOC = require('eleventy-plugin-toc');
+const markdownItAnchor = require('markdown-it-anchor');
+markdownIt.use(markdownItAnchor);
 
 module.exports = (config) => {
+  config.setLibrary('md', markdownIt);
+  config.addPlugin(pluginTOC, {
+    tags: ['h3', 'h4', 'h5']
+  });
   config.addPlugin(require('@11ty/eleventy-plugin-syntaxhighlight'));
   config.addPlugin(require("@11ty/eleventy-plugin-rss"));
 

@@ -3,15 +3,40 @@
 
 /* Prism Code Highlighting Theme (see https://prismjs.com) */
 @import url('https://cdn.jsdelivr.net/npm/prism-themes@1.5.0/themes/prism-dracula.css');
-
+pre[class*="language-"] {
+  background: #222425;
+  border: 1px solid #616C7A;
+  border-radius: 0;
+  max-height: 70vh;
+  overflow: auto;
+  position: relative;
+  font-size: 1.1rem;
+  line-height: 1.25;
+}
+@media(min-width: 1000px) {
+  pre[class*="language-"] {
+    width: 80vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -40vw;
+    margin-right: -40vw;
+  }
+}
+pre[class*="language-"] code {
+  background: #222425;
+}
 :not(pre) > code[class*="language-"] { /* Fixes issue where theme removes indentation. */
 	white-space: pre;
+}
+code {
+  color: #fff
 }
 
 html,
 body {
   @apply antialiased text-gray-500 bg-gray-900;
   font-family: 'Open Sans', sans-serif;
+  background: #15191D;
 }
 
 h1,
@@ -36,7 +61,16 @@ h4 > a,
 h5 > a,
 h6 > a,
 a {
-  @apply text-gray-300;
+  @apply text-gray-200;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply pt-4
 }
 
 h1 {
@@ -67,6 +101,13 @@ p {
   @apply text-lg;
 }
 
+ul, ol {
+  @apply py-3 px-0 m-0
+}
+li {
+  @apply ml-5 mr-0 pl-3 pr-0
+}
+
 pre {
   @apply my-2 text-sm tracking-wider break-words;
   border-radius: 25px;
@@ -82,6 +123,10 @@ hr {
 
 .attribution::before {
   content: '— ';
+}
+
+.content {
+  @apply text-gray-300;
 }
 
 .content > blockquote {
@@ -104,11 +149,6 @@ hr {
 
 .content > ol {
   list-style-type: decimal;
-}
-
-.content > ol > li,
-.content > ul > li {
-  @apply text-lg mr-12 ml-12 pr-2 pl-2;
 }
 
 .content > p {
@@ -164,10 +204,24 @@ hr {
 }
 
 #privacy-notice-button-container:hover {
-  @apply bg-gray-700 rounded cursor-pointer;
+  @apply bg-gray-700 cursor-pointer;
 }
 
 .caption {
   @apply text-center text-sm text-gray-400 w-3/4 pb-4 mx-auto w-full;
   margin: 0 auto;
+}
+
+
+.toc {
+  @apply my-4 pl-0 pr-4 py-2;
+  border: 1px solid #616C7A;
+  background: #222425;
+  max-height: 300px;
+  overflow-y: auto;
+}
+header {
+  background: url('/assets/bg.jpg') center center;
+  background-size: cover;
+  padding: 3rem 0;
 }
