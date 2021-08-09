@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    
+    <meta itemprop="name" content="How to make a texture pack | Rimworld modding">
+    <meta itemprop="description" content="Replace vanilla or modded textures and change the way Rimworld picks textures, if needed.">
+
+    
+    <meta name="twitter:title" content="How to make a texture pack | Rimworld modding">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="Replace vanilla or modded textures and change the way Rimworld picks textures, if needed.">
+    <meta name="twitter:site" content="@ComigoGames">
+    <meta name="twitter:creator" content="@ComigoGames">
+    <meta name="twitter:image:src" content="https://rimword.comigogames.com/twitter.jpg">
+
+    
+    <meta name="og:title" content="How to make a texture pack | Rimworld modding">
+    <meta name="og:description" content="Replace vanilla or modded textures and change the way Rimworld picks textures, if needed.">
+    <meta name="og:image" content="https://rimword.comigogames.com/og.jpg">
+    <meta name="og:url" content="https://rimword.comigogames.com/">
+    <meta name="og:site_name" content="Rimworld modding">
+    <meta name="og:locale" content="en_GB">
+    <meta name="og:type" content="website">
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <title>How to make a texture pack | Rimworld modding</title>
+
+    <link rel="stylesheet" href="/assets/main.bundle.css">
+
+    
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <!-- <p class="top-notice">
+    <a href="https://github.com/reeseschultz/11r">Get the template on GitHub!</a>
+</p>
+ -->
+    <header>
+  <nav class="container mx-auto max-w-3xl px-8 pt-2 flex flex-wrap justify-between">
+    <div>
+      <h1 class="py-2">
+        <a href="/">Rimworld modding</a>
+      </h1>
+      <p class="text-gray-100">The site that sheds the light on the darkness of Rimworld mod making. References, guides, docs, tutorials, cheat sheets.</p>
+    </div>
+  </nav>
+</header>
+<nav>
+    <div class="container mx-auto max-w-3xl pt-6 pb-0 px-8">
+      <!--<li>
+        <a href="/about">About</a>
+      </li>-->
+        <a class="mr-5" href="https://ludeon.com/forums/index.php?topic=2325.0" target="_blank">Vanilla art archive</a>
+        <a href="https://steamcommunity.com/id/comigo/myworkshopfiles/?appid=294100" target="_blank">My mods</a>
+    </div>
+</nav>
+    <main class="container mx-auto max-w-3xl p-8 flex-grow">
+      
+    <p></p>
+    <div>
+        <h2>How to make a texture pack</h2>
+
+        
+            <p class="excerpt">Replace vanilla or modded textures and change the way Rimworld picks textures, if needed.</p>
+        
+
+        
+            <div class="mb-2 tags">
+                <a class="tag xml" href="/tag/xml">xml</a><a class="tag defs" href="/tag/defs">defs</a><a class="tag textures" href="/tag/textures">textures</a><a class="tag patches" href="/tag/patches">patches</a>
+            </div>
+        
+
+        
+            
+                <p class="text-sm italic">Created on
+                    <span datetime="Mon Aug 09 2021 00:00:00 GMT+0000 (Coordinated Universal Time)">August 9, 2021</span>.</p>
+            
+        
+
+        <div class="content post">
+            
+                <div class="ToC">
+                    <h3>Table of contents</h3>
+                    <nav class="toc">
+        <ol><li><a href="#finding-the-correct-mod-and-defs">Finding the correct mod and defs</a></li><li><a href="#understanding-which-textures-are-used">Understanding which textures are used</a></li><li><a href="#changing-drawing-class-with-a-patch">Changing drawing class with a patch</a></li><li><a href="#and-that%E2%80%99s-it%2C-actually!">And that’s it, actually!</a></li></ol></nav>
+                </div>
+            
+            <p>Changing textures in the game is, probably, the easiest way to mod them. The process usually consists of these steps:</p>
+<ol>
+<li><a href="https://rimworldwiki.com/wiki/Modding_Tutorials/Mod_folder_structure">Create a new mod folder and its metadata</a>.</li>
+<li>Find the mod folder or the official datapack, and inside them seek for defs you want to retexture.</li>
+<li>In defs, find the path at which textures are stored, and also which drawing class is used. The latter affects which textures to expect. For non-official mods, you can jump straight to the Textures folder and write down the paths to your targeted textures.
+<ul>
+<li>DevMode will also help to list all the textures’ variations names.</li>
+</ul>
+</li>
+<li>Optionally, change drawing class to enable/disable randomization or cutout mode.</li>
+<li>Draw the new textures (duh).</li>
+<li>Put them into proper locations in your mods based on info obtained before.</li>
+</ol>
+<p>Quick disclaimer, that also explains why it works:</p>
+<blockquote>
+<p>All the textures from vanilla and mods are virtually merged in one huge folder, and if names and paths of two or more textures match, the mod that loads the last wins, overwrites them.</p>
+</blockquote>
+<p>So,</p>
+<h3 id="finding-the-correct-mod-and-defs" tabindex="-1">Finding the correct mod and defs</h3>
+<ul>
+<li>If you want to change the textures of vanilla Rimworld or Ideology/Royalty expansions, find the Rimword folder on your PC. With Steam, you can open your library, right-click Rimworld, click Properties, then click Local Files tab -&gt; Browse. There you will find the Data folder, with subfolders Core, Ideology and Royalty corresponding to the base game and expansions.</li>
+<li>Mods that are installed locally (not throught Steam) can be found at the same Rimworld folder, but in the Mods folder, not Data one.</li>
+<li>Mods that are installed with steam are in your Steam library.
+<ul>
+<li>A generic location for a Steam library is <code>C:\Games\SteamLibrary</code>, but you really should know the better where it is. Inside, navigate to the folder <code>steamapps\workshop\content\294100</code>. You need exactly <code>294100</code> — this is the ID of Rimworld in the Steam store.</li>
+<li>You will probably have a crapload of mods here that display as a list of number-named folders — to find the needed one, better <a href="https://steamcommunity.com/app/294100/workshop/">go to Steam Workshop for Rimworld</a> and just search by the name of the mod. You will get an URL similar to <code>https://steamcommunity.com/sharedfiles/filedetails/?id=2545774148</code>, and here <code>2545774148</code> is the name of the mod’s folder on your PC.</li>
+</ul>
+</li>
+</ul>
+<p>Then, the Defs. They are <em>usually</em> well categorized, but each modder does it in their own way, eventually.</p>
+<ul>
+<li>Most probably you want to tweak <code>ThingDefs</code> — the ones that are displayed on the map. These are stored in <code>RimWorld\Data\Core\Defs\</code> folder, with <code>ThingDefs_Buildings</code>, <code>ThingDefs_Plants</code>, <code>ThingDefs_Items</code>, <code>ThingDefs_Races</code>, <code>ThingDefs_Misc</code> inside it. You may as well need <code>TerrainDefs</code> to retexture floors.</li>
+<li>Mods usually follow a similar structure. Use your common sense. Go take a look inside those XML files, and use search to quicken things up.</li>
+</ul>
+<h3 id="understanding-which-textures-are-used" tabindex="-1">Understanding which textures are used</h3>
+<p>In a def, which is stored in an XML file, look for your thing’s name, and find two tags: <code>texPath</code> and <code>graphicClass</code> inside the <code>graphicData</code> block.</p>
+<p>For example, if I want to retexture that gross harp from Royalty, I navigate to <code>RimWorld\Data\Royalty\Defs\ThingDefs_Buildings</code> folder and open <code>Buildings_MusicalInstruments.xml</code>. Then I search for <code>Harp</code> word and quickly find its tag. Its’ <code>texPath</code> is <code>Things/Building/Joy/harp_south</code> and <code>graphicClass</code> is <code>Graphic_Single</code>.</p>
+<p>What does it give to us? I will write a more expanded article later, but here is the gist of these <code>graphicClass</code>es:</p>
+<ul>
+<li><code>Graphic_Single</code> expects just one texture. The easiest scenario! The path to a texture is the retrieved <code>texPath</code> + <code>.png</code>, <code>Things/Building/Joy/harp_south.png</code> in our example.</li>
+<li><code>Graphic_Multi</code> expects at least two textures for four orientations of a building. There can be at max four textures with suffixes <code>_south</code>, <code>_north</code>, <code>_east</code>, <code>_west</code>. For example, there are <code>FabricationBench_south.png</code>, <code>FabricationBench_north.png</code>, <code>FabricationBench_east.png</code>. Lacking textures will be replaced with mirrored opposite versions in-game.</li>
+<li><code>Graphic_Random</code> is the most tricky. Its <code>texPath</code> points to a <strong>folder</strong>, not a texture file, and inside this folder you add several textures. A random one will be picked. For example, for <code>texPath</code> <code>Things/Plant/TreeOak</code> we may have <code>Things/Plant/TreeOak/TreeOakA.png</code>, <code>Things/Plant/TreeOak/TreeOakB.png</code>, <code>Things/Plant/TreeOak/TreeOakC.png</code>, and so on. Notice how we duplicate the name of the texture in our path.</li>
+</ul>
+<blockquote>
+<p>It seems that initially the harp had several textures in mind, but something was changed during the development, hence the <code>_south</code> suffix.</p>
+</blockquote>
+<blockquote>
+<p>How can you get the list of vanilla texture variations? Make sure that Development mode in Rimworld’s options is on, and click the second “click” icon above your pawn’s portraits. Search for the button “Loaded Assets”, and press it. The list of all the loaded assets will be in the console (open and close with ` button). With a text search in another app, you will be able to find all the textures’ names of the def you are interested in. For example, <code>TreeAnima</code> has five variations, up to <code>TreeAnimaE</code>.</p>
+</blockquote>
+<p>Also see if there is <code>&lt;shaderType&gt;CutoutComplex&lt;/shaderType&gt;</code>. This shader is used with stuffed items and instructs not to paint specific zones of a texture. It awaits additional textures — masks — and they have a suffix <code>m</code>. For example, you can have <code>SmallBrewBench_eastm.png</code>, <code>SmallBrewBench_northm.png</code>, <code>SmallBrewBench_southm.png</code>, <code>SmallBrewBench_westm.png</code>.</p>
+<p>Okay, by now we should know which texture paths are expected. We can draw our textures and put them to the corresponding locations of our mod.</p>
+<h3 id="changing-drawing-class-with-a-patch" tabindex="-1">Changing drawing class with a patch</h3>
+<p>Say that we have a plant that has randomized graphics (<code>&lt;graphicClass&gt;Graphic_Random&lt;/graphicClass&gt;</code>), but our new textures are so complex that we in no way want to create variations. We can change the graphic class to <code>Graphic_Single</code>!</p>
+<p>We can create an <code>.xml</code> file at your Mod folder -&gt; Patches directory, e.g. <code>ChangeTreeGraphicClass.xml</code>. For the built-in content, we would use:</p>
+<pre class="language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Patch</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Operation</span> <span class="token attr-name">Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>PatchOperationReplace<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>        <span class="token comment">&lt;!-- Show errors if something goes wrong --></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>success</span><span class="token punctuation">></span></span>Normal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>success</span><span class="token punctuation">></span></span><br>        <span class="token comment">&lt;!-- Change defName="AB_AlienTree" to the one you need --></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>xpath</span><span class="token punctuation">></span></span>/Defs/ThingDef[defName="AB_AlienTree"]/graphicData/graphicClass<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>xpath</span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">></span></span><br>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>graphicClass</span><span class="token punctuation">></span></span>Graphic_Single<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>graphicClass</span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Operation</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Patch</span><span class="token punctuation">></span></span></code></pre>
+<p>For mods or official expansions:</p>
+<pre class="language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Patch</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Operation</span> <span class="token attr-name">Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>PatchOperationFindMod<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mods</span><span class="token punctuation">></span></span><br>            <span class="token comment">&lt;!-- This must be the precise name of the mod or expansion as it shows in your mod list --></span><br>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>Alpha Biomes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mods</span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>match</span> <span class="token attr-name">Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>PatchOperationReplace<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>            <span class="token comment">&lt;!-- Show errors if something goes wrong --></span><br>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>success</span><span class="token punctuation">></span></span>Normal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>success</span><span class="token punctuation">></span></span><br>            <span class="token comment">&lt;!-- Change defName="AB_AlienTree" to the one you need --></span><br>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>xpath</span><span class="token punctuation">></span></span>/Defs/ThingDef[defName="AB_AlienTree"]/graphicData/graphicClass<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>xpath</span><span class="token punctuation">></span></span><br>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">></span></span><br>                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>graphicClass</span><span class="token punctuation">></span></span>Graphic_Single<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>graphicClass</span><span class="token punctuation">></span></span><br>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>match</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Operation</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Patch</span><span class="token punctuation">></span></span></code></pre>
+<p>If you need to change a bunch of defs at once, you can edit the XPath and add the <code>or</code> statement:</p>
+<pre class="language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Patch</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Operation</span> <span class="token attr-name">Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>PatchOperationFindMod<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mods</span><span class="token punctuation">></span></span><br>            <span class="token comment">&lt;!-- This must be the precise name of the mod or expansion as it shows in your mod list --></span><br>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>Alpha Biomes<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mods</span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>match</span> <span class="token attr-name">Class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>PatchOperationReplace<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>            <span class="token comment">&lt;!-- Show errors if something goes wrong --></span><br>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>success</span><span class="token punctuation">></span></span>Normal<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>success</span><span class="token punctuation">></span></span><br>            <span class="token comment">&lt;!-- ⬇ Look how two defNames are specified here. You can specify more, too. --></span><br>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>xpath</span><span class="token punctuation">></span></span>/Defs/ThingDef[defName="AB_AlienTree" or defName="AB_HalfAlienTree"]/graphicData/graphicClass<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>xpath</span><span class="token punctuation">></span></span><br>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">></span></span><br>                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>graphicClass</span><span class="token punctuation">></span></span>Graphic_Single<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>graphicClass</span><span class="token punctuation">></span></span><br>            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">></span></span><br>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>match</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Operation</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Patch</span><span class="token punctuation">></span></span></code></pre>
+<p>If you do change the <code>graphicClass</code>, remember that you will need to put your textures in new locations! See explanation of <code>graphicClass</code>es above.</p>
+<h3 id="and-that%E2%80%99s-it%2C-actually!" tabindex="-1">And that’s it, actually!</h3>
+<p>With textures in correct places and optional patches, your mod will already work as intended. You may not need get the correct results on first try — but mistakes are usually inevitable, at least for humans. Read error messages that point to problematic places; with Patches, make sure your spelling is correct, including lowercase and uppercase letters.</p>
+<p>If you still have problems, try asking in <a href="https://discord.gg/rimworld">the unofficial Rimworld’s Discord server</a>.</p>
+
+        </div>
+            <p class="uppercase text-xs mt-6">Previous</p>
+
+            <p class="font-bold">
+                <a href="/post/optional-tags-and-mod-support-with-mayrequire/">Optional tags &amp; mod support with MayRequire</a>
+            </p>
+        
+    </div>
+
+    </main>
+    <footer class="py-10 mt-10 mb-0">
+  <p class="block text-center text-sm mb-6">
+    Made by <a target="_blank" href="https://comigo.itch.io/">CoMiGo Games</a>.
+    Site template by
+    <a target="_blank" href="https://github.com/reeseschultz">
+      Reese Schultz
+    </a>
+  </p>
+
+  <!-- <a class="block text-center text-sm" href="/privacy-policy">Privacy Policy</a> -->
+</footer>
+    <!-- <div id="privacy-notice" style="height: 5em" class="sticky bottom-0 py-5 px-2 bg-gray-800 w-full flex justify-center">
+    <p class="px-2 text-sm self-center">By using this site, you agree that you have read and understand its <a href="/privacy-policy">Privacy Policy</a>.</p>
+    <button aria-label="dismiss" style="height: 32px; width: 32px" class="flex justify-center align-center" id="privacy-notice-button-container">
+        <svg id="privacy-notice-button" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"/></svg> 
+    </button>
+</div>
+ -->
+    <!-- <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script> -->
+    <script src="/assets/main.bundle.js"></script>
+  </body>
+</html>
