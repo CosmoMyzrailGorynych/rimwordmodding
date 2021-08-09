@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Optional tags with MayRequire
+title: Optional tags & mod support with MayRequire
 excerpt: A new v1.3 XML feature that brings an alternative for XML Patches when you want to provide a support for an optional mod.
 date: 2021-08-08
 updatedDate: 2021-08-08
